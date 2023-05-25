@@ -23,26 +23,29 @@
   <table id="data-table">
     <tr>
       <th>Voltage 1</th>
+      <td id="voltage1"></td>
+    </tr>
+    <tr>
       <th>Voltage 2</th>
+      <td id="voltage2"></td>
+    </tr>
+    <tr>
       <th>Current 1</th>
+      <td id="current1"></td>
+    </tr>
+    <tr>
       <th>Current 2</th>
+      <td id="current2"></td>
     </tr>
   </table>
 
   <script>
     // Function to update the table with received data
     function updateTable(data) {
-      const table = document.getElementById('data-table');
-      const row = table.insertRow(-1);
-      const voltage1Cell = row.insertCell(0);
-      const voltage2Cell = row.insertCell(1);
-      const current1Cell = row.insertCell(2);
-      const current2Cell = row.insertCell(3);
-
-      voltage1Cell.innerHTML = data.voltage1;
-      voltage2Cell.innerHTML = data.voltage2;
-      current1Cell.innerHTML = data.current1;
-      current2Cell.innerHTML = data.current2;
+      document.getElementById('voltage1').innerHTML = data.voltage1;
+      document.getElementById('voltage2').innerHTML = data.voltage2;
+      document.getElementById('current1').innerHTML = data.current1;
+      document.getElementById('current2').innerHTML = data.current2;
     }
 
     // Make a request to the server to get the received data
