@@ -1,61 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SIM800 Data Receiver</title>
+  <title>Voltage and Current Display</title>
   <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    th, td {
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
+    /* Add your CSS styles here */
   </style>
 </head>
 <body>
-  <h1>SIM800 Data Receiver</h1>
-  <table id="data-table">
-    <tr>
-      <th>Voltage 1</th>
-      <td id="voltage1"></td>
-    </tr>
-    <tr>
-      <th>Voltage 2</th>
-      <td id="voltage2"></td>
-    </tr>
-    <tr>
-      <th>Current 1</th>
-      <td id="current1"></td>
-    </tr>
-    <tr>
-      <th>Current 2</th>
-      <td id="current2"></td>
-    </tr>
-  </table>
+  <h1>Voltage and Current Display</h1>
 
-  <script>
-    // Function to update the table with received data
-    function updateTable(data) {
-      document.getElementById('voltage1').innerText = data.voltage1;
-      document.getElementById('voltage2').innerText = data.voltage2;
-      document.getElementById('current1').innerText = data.current1;
-      document.getElementById('current2').innerText = data.current2;
-    }
+  <div>
+    <label for="voltage1">Voltage 1:</label>
+    <span id="voltage1Value"></span>
+  </div>
 
-    // Make a request to the server to get the received data
-    fetch('https://car-counter.onrender.com/api')
-      .then(response => response.json())
-      .then(data => {
-        // Display the received data in the table
-        updateTable(data);
-      })
-      .catch(error => console.error(error));
-  </script>
+  <div>
+    <label for="voltage2">Voltage 2:</label>
+    <span id="voltage2Value"></span>
+  </div>
+
+  <div>
+    <label for="current1">Current 1:</label>
+    <span id="current1Value"></span>
+  </div>
+
+  <div>
+    <label for="current2">Current 2:</label>
+    <span id="current2Value"></span>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
