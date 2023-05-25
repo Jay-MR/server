@@ -42,10 +42,10 @@
   <script>
     // Function to update the table with received data
     function updateTable(data) {
-      document.getElementById('voltage1').innerHTML = data.voltage1;
-      document.getElementById('voltage2').innerHTML = data.voltage2;
-      document.getElementById('current1').innerHTML = data.current1;
-      document.getElementById('current2').innerHTML = data.current2;
+      document.getElementById('voltage1').innerText = data.voltage1;
+      document.getElementById('voltage2').innerText = data.voltage2;
+      document.getElementById('current1').innerText = data.current1;
+      document.getElementById('current2').innerText = data.current2;
     }
 
     // Make a request to the server to get the received data
