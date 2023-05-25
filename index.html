@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SIM800 Data Receiver</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>SIM800 Data Receiver</h1>
+  <table id="data-table">
+    <tr>
+      <th>Voltage 1</th>
+      <th>Voltage 2</th>
+      <th>Current 1</th>
+      <th>Current 2</th>
+    </tr>
+  </table>
+
+  <script>
+    // Function to update the table with received data
+    function updateTable(data) {
+      const table = document.getElementById('data-table');
+      const row = table.insertRow(-1);
+      const voltage1Cell = row.insertCell(0);
+      const voltage2Cell = row.insertCell(1);
+      const current1Cell = row.insertCell(2);
+      const current2Cell = row.insertCell(3);
+
+      voltage1Cell.innerHTML = data.voltage1;
+      voltage2Cell.innerHTML = data.voltage2;
+      current1Cell.innerHTML = data.current1;
+      current2Cell.innerHTML = data.current2;
+    }
+
+    // Make a request to the server to get the received data
+    fetch('/api')
+      .then(response => response.json())
+      .then(data => {
+        // Display the received data in the table
+        updateTable(data);
+      })
+      .catch(error => console.error(error));
+  </script>
+</body>
+</html>
